@@ -21,15 +21,17 @@ public class Bloco {
     private Instant fim;
 
     @ManyToOne
-    @JoinColumn(name = "atvd_id")
-    private Set<Atividade> atividades = new HashSet<>();
+    @JoinColumn(name = "atividades_id")
+    private Atividade atividade;
 
-    public Bloco() {}
+    public Bloco() {
+    }
 
-    public Bloco(Integer id, Instant inicio, Instant fim) {
+    public Bloco(Integer id, Instant inicio, Instant fim, Atividade atividade) {
         this.id = id;
         this.inicio = inicio;
         this.fim = fim;
+        this.atividade = atividade;
     }
 
     public Integer getId() {
@@ -56,4 +58,11 @@ public class Bloco {
         this.fim = fim;
     }
 
+    public Atividade getAtividade() {
+        return atividade;
+    }
+
+    public void setAtividade(Atividade atividade) {
+        this.atividade = atividade;
+    }
 }
